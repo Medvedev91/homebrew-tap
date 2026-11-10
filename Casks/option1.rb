@@ -6,5 +6,15 @@ cask "option1" do
   name "Option1"
   desc "Two new features for macOS: 1. Open apps with shortcuts, like ⌥-1 for Chrome, ⌥-2 for Slack; 2. Open projects with shortcuts, like ⌥-3 for Option1.xcodeproj in Xcode. Any app."
   homepage "https://option1.io"
+
   app "Option1.app"
+
+  livecheck do
+    url "https://option1.io/appcast.xml"
+    strategy :sparkle
+  end
+
+  auto_updates true
+
+  depends_on macos: :sequoia
 end
